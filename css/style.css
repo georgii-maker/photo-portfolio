@@ -109,14 +109,10 @@ p{margin:0}
     radial-gradient(900px 700px at 10% 90%, rgba(120,140,180,.10), transparent 60%),
     linear-gradient(180deg,var(--bg) 0%, var(--bg-2) 100%);
 }
-.hero.has-photo .hero-media{
-  background-image:
-    linear-gradient(180deg, rgba(11,11,12,.72) 0%, rgba(11,11,12,.86) 55%, var(--bg) 100%),
-    var(--hero-image);
-  background-size:cover;
-  background-position:center;
-  filter:saturate(.95);
-}
+/* Фоновое фото главного экрана подставляет js/site.js inline-стилем:
+   относительный url() внутри CSS-переменной браузер считает от css/style.css,
+   а не от страницы, поэтому путь задаётся из скрипта. */
+.hero.has-photo .hero-media{filter:saturate(.95)}
 .hero-media::after{
   content:"";position:absolute;inset:0;
   background-image:radial-gradient(rgba(255,255,255,.035) 1px, transparent 1px);
@@ -259,7 +255,7 @@ p{margin:0}
 }
 
 /* ---------------- Contact ---------------- */
-.contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:34px}
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin-bottom:34px}
 .contact-card{
   display:flex;flex-direction:column;gap:8px;
   background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);

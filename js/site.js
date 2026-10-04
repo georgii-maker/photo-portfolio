@@ -31,12 +31,20 @@
     useFallback(img, img.parentElement);
   });
 
-  /* ---------------- Hero-фото (необязательно) ---------------- */
+  /* ---------------- Hero-фото (необязательно) ----------------
+     Путь подставляем абсолютный (probe.src): относительный url()
+     внутри CSS-переменной браузер считает от css/style.css,
+     а не от страницы, и картинка бы не нашлась. */
   var hero = document.querySelector(".hero");
-  if (hero) {
+  var heroMedia = hero ? hero.querySelector(".hero-media") : null;
+  if (hero && heroMedia) {
     var probe = new Image();
     probe.onload = function () {
-      hero.style.setProperty("--hero-image", 'url("images/hero.jpg")');
+      heroMedia.style.backgroundImage =
+        'linear-gradient(180deg,rgba(11,11,12,.72) 0%,rgba(11,11,12,.86) 55%,#0b0b0c 100%), url("' +
+        probe.src + '")';
+      heroMedia.style.backgroundSize = "cover";
+      heroMedia.style.backgroundPosition = "center";
       hero.classList.add("has-photo");
     };
     probe.src = "images/hero.jpg";
@@ -61,6 +69,9 @@
       img.loading = "lazy";
       img.decoding = "async";
       img.alt = item.alt || "Фотография";
+      // Размеры из gallery-data.js — чтобы вёрстка не «прыгала» во время загрузки.
+      // Поле необязательное: без него всё работает, просто будет сдвиг макета.
+      if (item.w && item.h) { img.width = item.w; img.height = item.h; }
       useFallback(img, fig);
       img.src = item.src || PLACEHOLDER;
 
