@@ -1,0 +1,12 @@
+# Нормализуем переводы строк — иначе git ругается на CRLF в Windows
+* text=auto eol=lf
+
+# Бинарные файлы не трогаем
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.webp binary
+*.gif binary
+*.ico binary
+*.woff binary
+*.woff2 binary

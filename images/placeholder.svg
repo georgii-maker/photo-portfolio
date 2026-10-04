@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800" role="img" aria-label="Фотография скоро появится">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#17171b"/>
+      <stop offset="0.55" stop-color="#1e1e24"/>
+      <stop offset="1" stop-color="#121215"/>
+    </linearGradient>
+    <linearGradient id="a" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#c9a86a" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#c9a86a" stop-opacity="0.25"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#g)"/>
+  <g opacity="0.09" stroke="#ffffff" stroke-width="1">
+    <path d="M0 200 H1200 M0 400 H1200 M0 600 H1200 M300 0 V800 M600 0 V800 M900 0 V800"/>
+  </g>
+  <g transform="translate(600 380)" fill="none" stroke="#c9a86a" stroke-width="6" opacity="0.75">
+    <rect x="-120" y="-70" width="240" height="150" rx="22"/>
+    <circle cx="0" cy="5" r="46"/>
+    <path d="M-60 -70 L-42 -100 H42 L60 -70"/>
+  </g>
+  <circle cx="600" cy="385" r="18" fill="url(#a)"/>
+  <text x="600" y="530" text-anchor="middle" fill="#a29c93" font-family="Georgia, 'Times New Roman', serif" font-size="34" font-style="italic">Фотография скоро появится</text>
+  <text x="600" y="576" text-anchor="middle" fill="#6f6a63" font-family="Verdana, Geneva, sans-serif" font-size="16" letter-spacing="3">ДОБАВЬТЕ ФАЙЛ В ПАПКУ images/</text>
+</svg>
