@@ -24,5 +24,6 @@ window.GALLERY = [
   { src: "images/work-10.jpg", alt: "Руки к небу",                    tag: "портрет",         w: 1800, h: 1200 },
   { src: "images/work-11.jpg", alt: "Взгляд в сторону",               tag: "портрет",         w: 1200, h: 1800 },
   { src: "images/work-12.jpg", alt: "На набережной",                  tag: "улица",           w: 1200, h: 1800 },
-  { src: "images/work-13.jpg", alt: "магия момента",                  tag: "ночной портрет",  w: 1350, h: 1800 }
+  { src: "images/work-13.jpg", alt: "магия момента",                  tag: "ночной портрет",  w: 1350, h: 1800 },
+  { src: "images/work-14.jpg", alt: "5427326666612087958",            tag: "",                w: 1200, h: 1800 }
 ];
