@@ -1,0 +1,9 @@
+# Служебные файлы — не публикуем
+*.bak
+*.tmp
+*.log
+
+# Системный мусор
+.DS_Store
+Thumbs.db
+desktop.ini
