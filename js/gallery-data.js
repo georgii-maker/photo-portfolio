@@ -16,14 +16,14 @@ window.GALLERY = [
   { src: "images/work-02.jpg", alt: "Отдых на траве",                 tag: "портрет",         w: 1800, h: 1200 },
   { src: "images/work-03.jpg", alt: "Пара у старой стены",            tag: "портрет",         w: 1200, h: 1800 },
   { src: "images/work-04.jpg", alt: "Золотой час на скамейке",        tag: "портрет",         w: 1200, h: 1800 },
-  { src: "images/work-05.jpg", alt: "Закат над Москвой",              tag: "улица",           w: 1800, h: 1200 },
-  { src: "images/work-06.jpg", alt: "Портрет в парке",                tag: "портрет",         w: 1200, h: 1800 },
-  { src: "images/work-07.jpg", alt: "Голубь в полёте",                tag: "детали",          w: 1800, h: 1200 },
-  { src: "images/work-08.jpg", alt: "Легенды советского автоспорта",  tag: "улица",           w: 1200, h: 1800 },
-  { src: "images/work-09.jpg", alt: "С телефоном у парапета",         tag: "улица",           w: 1200, h: 1800 },
   { src: "images/work-10.jpg", alt: "Руки к небу",                    tag: "портрет",         w: 1800, h: 1200 },
-  { src: "images/work-11.jpg", alt: "Взгляд в сторону",               tag: "портрет",         w: 1200, h: 1800 },
-  { src: "images/work-12.jpg", alt: "На набережной",                  tag: "улица",           w: 1200, h: 1800 },
+  { src: "images/work-06.jpg", alt: "Портрет в парке",                tag: "портрет",         w: 1200, h: 1800 },
+  { src: "images/work-05.jpg", alt: "Закат над Москвой",              tag: "улица",           w: 1800, h: 1200 },
   { src: "images/work-13.jpg", alt: "магия момента",                  tag: "ночной портрет",  w: 1350, h: 1800 },
-  { src: "images/work-14.jpg", alt: "5427326666612087958",            tag: "",                w: 1200, h: 1800 }
+  { src: "images/work-08.jpg", alt: "Легенды советского автоспорта",  tag: "улица",           w: 1200, h: 1800 },
+  { src: "images/work-07.jpg", alt: "Голубь в полёте",                tag: "детали",          w: 1800, h: 1200 },
+  { src: "images/work-11.jpg", alt: "Взгляд в сторону",               tag: "портрет",         w: 1200, h: 1800 },
+  { src: "images/work-09.jpg", alt: "С телефоном у парапета",         tag: "улица",           w: 1200, h: 1800 },
+  { src: "images/work-12.jpg", alt: "На набережной",                  tag: "улица",           w: 1200, h: 1800 },
+  { src: "images/work-14.jpg", alt: "Московская архитектура",         tag: "Архитектура",     w: 1200, h: 1800 }
 ];
