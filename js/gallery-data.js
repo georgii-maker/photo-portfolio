@@ -23,7 +23,7 @@ window.GALLERY = [
   { src: "images/work-08.jpg", alt: "Легенды советского автоспорта",  tag: "улица",           w: 1200, h: 1800 },
   { src: "images/work-07.jpg", alt: "Голубь в полёте",                tag: "детали",          w: 1800, h: 1200 },
   { src: "images/work-11.jpg", alt: "Взгляд в сторону",               tag: "портрет",         w: 1200, h: 1800 },
-  { src: "images/work-09.jpg", alt: "С телефоном у парапета",         tag: "улица",           w: 1200, h: 1800 },
   { src: "images/work-12.jpg", alt: "На набережной",                  tag: "улица",           w: 1200, h: 1800 },
+  { src: "images/work-09.jpg", alt: "С телефоном у парапета",         tag: "улица",           w: 1200, h: 1800 },
   { src: "images/work-14.jpg", alt: "Московская архитектура",         tag: "Архитектура",     w: 1200, h: 1800 }
 ];
