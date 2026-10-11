@@ -1,13 +1,23 @@
 /* Файл генерируется автоматически Telegram-ботом. Не редактируйте вручную.
    Отзывы, добавленные в «Редакторе сайта», лежат в js/reviews.js. */
 window.PHOTO_REVIEWS_BOT = {
-  "updated_at": "2026-10-11T23:01:11",
-  "count": 1,
+  "updated_at": "2026-10-12T02:47:05",
+  "count": 2,
   "reviews": [
     {
-      "id": 2,
+      "id": 5,
+      "name": "ᎮᏗᏝᎩ૮Ꮒ (@FIFIY679)",
+      "text": "Круто круто",
+      "rating": 5,
+      "date": "11.10.2026",
+      "series": "Мирон, и Мила",
+      "photo": "",
+      "published": true
+    },
+    {
+      "id": 3,
       "name": "LINE (@LoverOfRoses1)",
-      "text": "Круто",
+      "text": "Оч круто",
       "rating": 5,
       "date": "11.10.2026",
       "series": "Ярик",

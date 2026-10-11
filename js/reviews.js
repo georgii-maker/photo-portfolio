@@ -1,18 +1,8 @@
 // Файл создаётся приложением «Редактор сайта» и Telegram-ботом. Не редактируйте вручную.
 window.PHOTO_REVIEWS = {
-  "updated_at": "2026-10-11T23:53:07",
-  "count": 2,
+  "updated_at": "2026-10-12T02:43:56",
+  "count": 1,
   "reviews": [
-    {
-      "id": 1,
-      "name": "Георгий",
-      "text": "32ак23а23а",
-      "rating": 5,
-      "date": "11.10.2026",
-      "series": "тест",
-      "photo": "",
-      "published": false
-    },
     {
       "id": 2,
       "name": "Глеб",
