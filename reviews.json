@@ -1,0 +1,16 @@
+{
+  "updated_at": "2026-10-11T18:50:05",
+  "count": 1,
+  "reviews": [
+    {
+      "id": 1,
+      "name": "Георгий",
+      "text": "32ак23а23а",
+      "rating": 5,
+      "date": "11.10.2026",
+      "series": "тест",
+      "photo": "",
+      "published": false
+    }
+  ]
+}

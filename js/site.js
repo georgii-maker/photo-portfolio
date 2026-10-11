@@ -1,5 +1,5 @@
 /* =========================================================
-   Портфолио фотографа — логика сайта
+   Портфолио фотографа - логика сайта
    Галерея, фильтры, лайтбокс, меню, анимации появления.
    ========================================================= */
 (function () {
@@ -69,7 +69,7 @@
       img.loading = "lazy";
       img.decoding = "async";
       img.alt = item.alt || "Фотография";
-      // Размеры из gallery-data.js — чтобы вёрстка не «прыгала» во время загрузки.
+      // Размеры из gallery-data.js - чтобы вёрстка не «прыгала» во время загрузки.
       // Поле необязательное: без него всё работает, просто будет сдвиг макета.
       if (item.w && item.h) { img.width = item.w; img.height = item.h; }
       useFallback(img, fig);
@@ -252,6 +252,118 @@
       });
     }, { rootMargin: "-45% 0px -50% 0px" });
     sections.forEach(function (s) { navObserver.observe(s); });
+  }
+
+  /* ---------------- Отзывы ----------------
+     Два источника данных:
+       js/reviews.js      - отзывы, добавленные в «Редакторе сайта» (и вручную);
+       js/reviews-bot.js  - отзывы, собранные Telegram-ботом.
+     Отзывы с published:false не показываются. Если отзывов нет - прячем
+     и раздел, и пункты меню, которые на него ссылаются. */
+  var reviewsGrid = document.getElementById("reviews-grid");
+  if (reviewsGrid) {
+    var reviewSources = [
+      window.PHOTO_REVIEWS && window.PHOTO_REVIEWS.reviews,
+      window.PHOTO_REVIEWS_BOT && window.PHOTO_REVIEWS_BOT.reviews
+    ];
+    var reviews = [];
+    var reviewSeen = {};
+
+    reviewSources.forEach(function (list) {
+      if (!Array.isArray(list)) return;
+      list.forEach(function (item) {
+        if (!item || item.published === false) return;
+        var body = String(item.text == null ? "" : item.text).trim();
+        if (!body) return;
+        var key = [item.id, item.name, item.date, body.slice(0, 40)].join("|");
+        if (reviewSeen[key]) return;
+        reviewSeen[key] = true;
+        reviews.push(item);
+      });
+    });
+
+    function reviewTime(item) {
+      var raw = String(item.date || "").trim();
+      var ru = raw.match(/^(\d{2})\.(\d{2})\.(\d{4})$/);
+      if (ru) return Date.UTC(Number(ru[3]), Number(ru[2]) - 1, Number(ru[1]));
+      var parsed = Date.parse(raw);
+      return isNaN(parsed) ? 0 : parsed;
+    }
+    reviews.sort(function (a, b) { return reviewTime(b) - reviewTime(a); });
+
+    var reviewsEmpty = document.getElementById("reviews-empty");
+    var reviewsSection = document.getElementById("reviews");
+
+    if (!reviews.length) {
+      if (reviewsEmpty) reviewsEmpty.hidden = false;
+      if (reviewsSection) reviewsSection.hidden = true;
+      document.querySelectorAll('a[href="#reviews"]').forEach(function (link) {
+        link.hidden = true;
+      });
+    } else {
+      reviews.forEach(function (item) {
+        var card = document.createElement("article");
+        card.className = "review reveal";
+
+        var head = document.createElement("header");
+        head.className = "review-head";
+
+        var name = document.createElement("span");
+        name.className = "review-name";
+        name.textContent = String(item.name || "Гость");
+        head.appendChild(name);
+
+        if (item.date) {
+          var date = document.createElement("span");
+          date.className = "review-date";
+          date.textContent = String(item.date);
+          head.appendChild(date);
+        }
+        card.appendChild(head);
+
+        if (item.series) {
+          var series = document.createElement("p");
+          series.className = "review-series";
+          series.textContent = String(item.series);
+          card.appendChild(series);
+        }
+
+        var rating = Math.round(Number(item.rating) || 0);
+        if (rating > 0) {
+          rating = Math.max(1, Math.min(5, rating));
+          var stars = document.createElement("p");
+          stars.className = "review-stars";
+          stars.setAttribute("aria-label", "Оценка " + rating + " из 5");
+          var filled = document.createElement("span");
+          filled.className = "review-stars-on";
+          filled.textContent = "★★★★★".slice(0, rating);
+          var empty = document.createElement("span");
+          empty.className = "review-stars-off";
+          empty.textContent = "☆☆☆☆☆".slice(0, 5 - rating);
+          stars.appendChild(filled);
+          stars.appendChild(empty);
+          card.appendChild(stars);
+        }
+
+        var text = document.createElement("p");
+        text.className = "review-text";
+        text.textContent = String(item.text);
+        card.appendChild(text);
+
+        if (item.photo) {
+          var photo = document.createElement("img");
+          photo.className = "review-photo";
+          photo.loading = "lazy";
+          photo.decoding = "async";
+          photo.alt = "Фото от клиента";
+          useFallback(photo, card);
+          photo.src = String(item.photo);
+          card.appendChild(photo);
+        }
+
+        reviewsGrid.appendChild(card);
+      });
+    }
   }
 
   /* ---------------- Появление блоков ---------------- */

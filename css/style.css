@@ -1,5 +1,5 @@
 /* =========================================================
-   Портфолио фотографа — стили
+   Портфолио фотографа - стили
    Палитра и типографика настраиваются в :root ниже.
    ========================================================= */
 
@@ -267,6 +267,28 @@ p{margin:0}
 .contact-value{font-family:var(--font-display);font-size:clamp(20px,2.2vw,26px);color:var(--text)}
 .contact-note{text-align:center;color:var(--muted);font-size:14px}
 
+/* ---------------- Reviews ----------------
+   Отзывы приходят из js/reviews.js (редактор сайта) и js/reviews-bot.js
+   (Telegram-бот); логика вывода - в js/site.js. */
+.reviews-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px;align-items:start}
+.review{
+  display:flex;flex-direction:column;gap:14px;height:100%;
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+  padding:28px 26px;
+  transition:border-color .3s var(--ease),background .3s var(--ease),transform .3s var(--ease);
+}
+.review:hover{border-color:rgba(201,168,106,.35);background:var(--surface-2);transform:translateY(-3px)}
+.review-head{display:flex;align-items:baseline;justify-content:space-between;gap:14px}
+.review-name{font-family:var(--font-display);font-size:clamp(20px,2.2vw,26px)}
+.review-date{font-size:12px;color:var(--muted);white-space:nowrap}
+.review-series{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent)}
+.review-stars{font-size:14px;letter-spacing:.18em;line-height:1}
+.review-stars-on{color:var(--accent)}
+.review-stars-off{color:rgba(255,255,255,.20)}
+.review-text{color:var(--muted);font-size:15px;white-space:pre-line}
+.review-photo{margin-top:auto;width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:12px}
+.reviews-empty{color:var(--muted);font-size:15px}
+
 /* ---------------- Footer ---------------- */
 .site-footer{border-top:1px solid var(--line);padding:48px 0;background:var(--bg)}
 .footer-inner{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px}
@@ -322,6 +344,7 @@ body.is-locked{overflow:hidden}
   .gear-grid{grid-template-columns:repeat(2,1fr)}
   .gear-card-wide{grid-column:span 2}
   .contact-grid{grid-template-columns:repeat(2,1fr)}
+  .reviews-grid{grid-template-columns:repeat(2,1fr)}
 }
 
 @media (max-width:820px){
@@ -342,7 +365,7 @@ body.is-locked{overflow:hidden}
 }
 
 @media (max-width:620px){
-  .gear-grid,.contact-grid{grid-template-columns:1fr}
+  .gear-grid,.contact-grid,.reviews-grid{grid-template-columns:1fr}
   .gear-card-wide{grid-column:span 1}
   .gallery-grid{columns:1}
   .footer-inner{flex-direction:column;align-items:flex-start}
