@@ -289,6 +289,36 @@ p{margin:0}
 .review-photo{margin-top:auto;width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:12px}
 .reviews-empty{color:var(--muted);font-size:15px}
 
+/* ---------------- Price ----------------
+   Прайс собирается из content.json редактора (sitegen.render_price_section):
+   категории карточками, внутри - строки «позиция → сумма». */
+.price-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:22px;align-items:start}
+.price-card{
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+  padding:30px 28px;
+  transition:border-color .3s var(--ease),background .3s var(--ease),transform .3s var(--ease);
+}
+.price-card:hover{border-color:rgba(201,168,106,.35);background:var(--surface-2);transform:translateY(-3px)}
+.price-card h3{font-size:clamp(24px,2.6vw,32px);margin-bottom:8px}
+.price-card-sub{color:var(--muted);font-size:14px;margin-bottom:16px}
+.price-list{list-style:none;margin:0;padding:0}
+.price-row{
+  display:grid;grid-template-columns:1fr auto;gap:2px 18px;align-items:baseline;
+  padding:14px 0;border-top:1px solid var(--line);
+}
+.price-row:first-child{border-top:0}
+.price-name{font-size:16px;overflow-wrap:anywhere}
+.price-value{
+  font-family:var(--font-display);font-size:clamp(26px,2.6vw,32px);line-height:1.12;
+  color:var(--accent);text-align:right;white-space:nowrap;
+}
+.price-value em{
+  display:block;margin-top:4px;
+  font-family:var(--font-body);font-style:normal;
+  font-size:15px;letter-spacing:.01em;color:rgba(243,240,235,.72);
+}
+.price-note{grid-column:1/-1;font-size:13.5px;color:var(--muted);margin-top:2px}
+
 /* ---------------- Footer ---------------- */
 .site-footer{border-top:1px solid var(--line);padding:48px 0;background:var(--bg)}
 .footer-inner{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px}
@@ -365,9 +395,12 @@ body.is-locked{overflow:hidden}
 }
 
 @media (max-width:620px){
-  .gear-grid,.contact-grid,.reviews-grid{grid-template-columns:1fr}
+  .gear-grid,.contact-grid,.reviews-grid,.price-grid{grid-template-columns:1fr}
   .gear-card-wide{grid-column:span 1}
   .gallery-grid{columns:1}
+  /* цена уезжает под название: длинные названия не выдавливают сумму за карточку */
+  .price-row{grid-template-columns:1fr;gap:4px}
+  .price-value{text-align:left}
   .footer-inner{flex-direction:column;align-items:flex-start}
   .lightbox-prev{left:8px}
   .lightbox-next{right:8px}
