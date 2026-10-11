@@ -1,6 +1,6 @@
 // Файл создаётся приложением «Редактор сайта» и Telegram-ботом. Не редактируйте вручную.
 window.PHOTO_REVIEWS = {
-  "updated_at": "2026-10-11T23:48:01",
+  "updated_at": "2026-10-11T23:53:07",
   "count": 2,
   "reviews": [
     {
@@ -20,7 +20,7 @@ window.PHOTO_REVIEWS = {
       "rating": 0,
       "date": "11.10.2026",
       "series": "Парная сьемка",
-      "photo": "images/reviews/2.jpg",
+      "photo": "",
       "published": true
     }
   ]
