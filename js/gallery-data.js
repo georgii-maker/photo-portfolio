@@ -26,5 +26,6 @@ window.GALLERY = [
   { src: "images/work-12.jpg", alt: "На набережной",                  tag: "улица",           w: 1200, h: 1800 },
   { src: "images/work-09.jpg", alt: "С телефоном у парапета",         tag: "улица",           w: 1200, h: 1800 },
   { src: "images/work-14.jpg", alt: "Московская архитектура",         tag: "Архитектура",     w: 1200, h: 1800 },
-  { src: "images/work-15.jpg", alt: "Ночная нежность",                tag: "Ночной портрет",  w: 1200, h: 1800 }
+  { src: "images/work-15.jpg", alt: "Ночная нежность",                tag: "Ночной портрет",  w: 1200, h: 1800 },
+  { src: "images/work-16.jpg", alt: "Фото в парке",                   tag: "портрет",         w: 1200, h: 1800 }
 ];
