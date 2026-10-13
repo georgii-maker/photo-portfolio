@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://worldinfocus.ru/sitemap.xml
