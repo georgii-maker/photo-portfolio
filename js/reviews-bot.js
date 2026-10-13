@@ -1,19 +1,9 @@
 /* Файл генерируется автоматически Telegram-ботом. Не редактируйте вручную.
    Отзывы, добавленные в «Редакторе сайта», лежат в js/reviews.js. */
 window.PHOTO_REVIEWS_BOT = {
-  "updated_at": "2026-10-12T10:20:57",
-  "count": 5,
+  "updated_at": "2026-10-13T19:48:35",
+  "count": 4,
   "reviews": [
-    {
-      "id": 8,
-      "name": "Nikolaeva",
-      "text": "Жоре там респект и спасибо передавай",
-      "rating": 0,
-      "date": "12.10.2026",
-      "series": "",
-      "photo": "",
-      "published": true
-    },
     {
       "id": 7,
       "name": "Шохруз @Shohh_88",
