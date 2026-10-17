@@ -294,6 +294,10 @@
     var reviewsEmpty = document.getElementById("reviews-empty");
     var reviewsSection = document.getElementById("reviews");
 
+    // Отзывы уже есть в HTML (их встроил сборщик сайта, чтобы их видели
+    // поисковики). Перед отрисовкой очищаем сетку, иначе карточки задвоятся.
+    if (reviewsGrid) reviewsGrid.innerHTML = "";
+
     if (!reviews.length) {
       if (reviewsEmpty) reviewsEmpty.hidden = false;
       if (reviewsSection) reviewsSection.hidden = true;
