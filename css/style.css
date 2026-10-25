@@ -412,3 +412,177 @@ body.is-locked{overflow:hidden}
   *,*::before,*::after{animation-duration:.001ms !important;transition-duration:.001ms !important}
   .js .reveal{opacity:1;transform:none}
 }
+
+/* =========================================================
+   КАТЕГОРИИ (тестовая версия сайта)
+   Блок на главной: текст слева, пробное фото справа.
+   Страница категории: сетка всех фото этой категории.
+   ========================================================= */
+.cat-list{display:flex;flex-direction:column;gap:26px;margin-top:8px}
+
+.cat-card{
+  display:grid;grid-template-columns:1fr minmax(0,320px);gap:34px;align-items:center;
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+  padding:34px;
+  transition:border-color .3s var(--ease),background .3s var(--ease);
+}
+.cat-card:hover{border-color:rgba(201,168,106,.35);background:var(--surface-2)}
+.cat-card h3{font-size:clamp(28px,3vw,40px);margin-bottom:10px}
+.cat-sub{color:var(--muted);font-size:15px;margin-bottom:8px;max-width:52ch}
+.cat-count{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:20px}
+.cat-card .btn{margin-top:4px}
+
+.cat-cover{
+  display:flex;align-items:center;justify-content:center;
+  overflow:hidden;border-radius:12px;border:1px solid var(--line);
+  background:var(--surface-2);
+  align-self:stretch;
+}
+/* Показываем кадр ЦЕЛИКОМ (contain), а не обрезаем по центру:
+   иначе на вертикальных фото обрезаются голова или ноги. */
+.cat-cover img{
+  display:block;width:100%;height:auto;max-height:none;
+  object-fit:contain;object-position:center;
+  transition:transform .5s var(--ease);
+}
+.cat-cover:hover img{transform:scale(1.03)}
+
+.cat-title{font-size:clamp(34px,4.5vw,58px);margin-bottom:10px}
+.cat-grid{
+  columns:3;column-gap:16px;margin-top:10px;
+}
+.cat-thumb{
+  margin:0 0 16px;break-inside:avoid;overflow:hidden;border-radius:12px;
+  border:1px solid var(--line);background:var(--surface);
+}
+.cat-thumb img{display:block;width:100%;height:auto;transition:transform .5s var(--ease)}
+.cat-thumb:hover img{transform:scale(1.03)}
+.cat-back{margin-top:34px;text-align:center}
+.section-head .eyebrow a{color:inherit;text-decoration:none}
+.section-head .eyebrow a:hover{color:var(--accent)}
+
+@media (max-width:820px){
+  .cat-card{grid-template-columns:1fr;padding:24px;gap:20px}
+  .cat-cover{order:-1}
+  /* Никаких aspect-ratio: вертикальный кадр должен быть виден целиком */
+  .cat-cover img{max-height:70vh;width:100%;height:auto}
+  .cat-grid{columns:2}
+}
+@media (max-width:520px){
+  .cat-grid{columns:1}
+}
+
+/* =========================================================
+   КАТЕГОРИИ: мобильная адаптация и кнопки
+   Одна вёрстка под все экраны: телефон, планшет, ПК.
+   ========================================================= */
+
+/* Верхняя панель страницы категории */
+.cat-topbar{
+  border-bottom:1px solid var(--line);
+  background:rgba(11,11,12,.92);
+  backdrop-filter:saturate(140%) blur(10px);
+  position:sticky;top:0;z-index:50;
+}
+.cat-topbar .wrap{
+  display:flex;align-items:center;justify-content:space-between;
+  gap:16px;min-height:64px;
+}
+.cat-brand{
+  display:inline-flex;align-items:center;gap:10px;
+  color:var(--text);text-decoration:none;font-weight:500;letter-spacing:.02em;
+}
+.cat-brand:hover{color:var(--accent)}
+.cat-brand .brand-dot{
+  width:9px;height:9px;border-radius:50%;background:var(--accent);
+  box-shadow:0 0 0 4px var(--accent-soft);flex:none;
+}
+
+/* Кнопка «К категориям» — аккуратная, с иконкой-стрелкой */
+.btn-back{
+  display:inline-flex;align-items:center;gap:9px;
+  padding:11px 20px;border-radius:999px;
+  border:1px solid var(--line);background:var(--surface);
+  color:var(--text);font-size:14px;text-decoration:none;line-height:1;
+  transition:border-color .25s var(--ease),color .25s var(--ease),background .25s var(--ease);
+}
+.btn-back svg{width:16px;height:16px;flex:none;transition:transform .25s var(--ease)}
+.btn-back:hover{border-color:var(--accent);color:var(--accent);background:var(--surface-2)}
+.btn-back:hover svg{transform:translateX(-3px)}
+.btn-back:active{transform:translateY(1px)}
+
+/* Крупная кнопка внизу страницы категории */
+.cat-back{
+  margin-top:44px;display:flex;justify-content:center;
+}
+.cat-back .btn-back{padding:14px 28px;font-size:15px}
+
+/* Крошка «Работы / Портреты» */
+.cat-crumbs{
+  display:flex;flex-wrap:wrap;align-items:center;gap:8px;
+  font-size:12px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:14px;
+}
+.cat-crumbs a{color:var(--accent);text-decoration:none}
+.cat-crumbs a:hover{text-decoration:underline}
+.cat-crumbs .sep{color:var(--muted);opacity:.6}
+.cat-crumbs .current{color:var(--muted)}
+
+/* Счётчик фото на странице категории */
+.cat-meta{
+  display:inline-flex;align-items:center;gap:8px;
+  margin-top:6px;padding:7px 15px;border-radius:999px;
+  border:1px solid var(--line);background:var(--surface);
+  font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);
+}
+
+/* ---- Планшет ---- */
+@media (max-width:1000px){
+  .cat-grid{columns:2}
+  .cat-card{grid-template-columns:1fr minmax(0,260px);gap:26px;padding:26px}
+}
+
+/* ---- Телефон ---- */
+@media (max-width:820px){
+  .cat-list{gap:18px}
+  .cat-card{
+    grid-template-columns:1fr;gap:18px;padding:20px;border-radius:16px;
+  }
+  /* Фото сверху, текст под ним — так удобнее листать на телефоне */
+  .cat-cover{order:-1;max-height:none}
+  /* Вертикальный кадр показываем целиком, без обрезки головы */
+  .cat-cover img{aspect-ratio:auto;height:auto;max-height:65vh;object-fit:contain}
+  .cat-card h3{font-size:clamp(24px,7vw,32px)}
+  .cat-sub{font-size:14px}
+  .cat-card .btn{width:100%;padding:13px 20px;font-size:14px}
+
+  .cat-title{font-size:clamp(28px,8vw,40px)}
+  .cat-grid{columns:2;column-gap:12px}
+  .cat-thumb{margin-bottom:12px;border-radius:10px}
+
+  .cat-topbar .wrap{min-height:56px;gap:10px}
+  .cat-brand{font-size:14px}
+  .btn-back{padding:10px 16px;font-size:13px}
+  .btn-back .btn-back-text{display:none}   /* на узком экране только иконка */
+  .cat-back{margin-top:28px}
+  .cat-back .btn-back{padding:13px 22px}
+}
+
+/* ---- Очень узкий телефон ---- */
+@media (max-width:520px){
+  .cat-card{padding:16px}
+  .cat-grid{columns:1}
+  .cat-thumb{margin-bottom:10px}
+  .cat-meta{font-size:11px}
+}
+
+/* ---- Широкий экран: больше колонок ---- */
+@media (min-width:1400px){
+  .cat-grid{columns:4}
+}
+
+/* ---- Тач-устройства: убираем эффект наведения-прилипания ---- */
+@media (hover:none){
+  .cat-cover:hover img,.cat-thumb:hover img{transform:none}
+  .btn-back:hover{background:var(--surface);color:var(--text);border-color:var(--line)}
+}
