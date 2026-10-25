@@ -254,18 +254,36 @@ p{margin:0}
   transform:rotate(45deg);
 }
 
-/* ---------------- Contact ---------------- */
-.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin-bottom:34px}
+/* ---------------- Contact ----------------
+   Карточки контактов: иконка соцсети слева, подпись и значение, стрелка.
+   Иконки - официальные SVG из images/icons (Telegram, VK, TikTok). */
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;margin-bottom:34px}
 .contact-card{
-  display:flex;flex-direction:column;gap:8px;
+  display:flex;align-items:center;gap:14px;
   background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
-  padding:28px 26px;
+  padding:18px 22px;
   transition:border-color .3s var(--ease),background .3s var(--ease),transform .3s var(--ease);
 }
 .contact-card:hover{border-color:rgba(201,168,106,.5);background:var(--surface-2);transform:translateY(-3px)}
+.contact-icon{
+  width:46px;height:46px;flex:none;display:inline-flex;align-items:center;
+  justify-content:center;border-radius:12px;background:var(--surface-2);
+}
+.contact-icon img,.contact-icon svg{width:24px;height:24px;display:block}
+.contact-icon-bot{color:var(--accent)}
+.contact-body{display:flex;flex-direction:column;gap:4px;flex:1;min-width:0}
 .contact-label{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
-.contact-value{font-family:var(--font-display);font-size:clamp(20px,2.2vw,26px);color:var(--text)}
+.contact-value{font-family:var(--font-display);font-size:clamp(18px,2vw,23px);color:var(--text)}
+.contact-arrow{color:var(--muted);font-size:18px;flex:none;
+  transition:transform .3s var(--ease),color .3s var(--ease)}
+.contact-card:hover .contact-arrow{transform:translateX(4px);color:var(--accent)}
 .contact-note{text-align:center;color:var(--muted);font-size:14px}
+
+@media (max-width:520px){
+  .contact-card{padding:15px 16px;gap:11px}
+  .contact-icon{width:40px;height:40px;border-radius:10px}
+  .contact-icon img,.contact-icon svg{width:21px;height:21px}
+}
 
 /* ---------------- Reviews ----------------
    Отзывы приходят из js/reviews.js (редактор сайта) и js/reviews-bot.js
