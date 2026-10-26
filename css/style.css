@@ -668,3 +668,22 @@ body.mt-closed{
 }
 .mt-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
 .mt-foot{margin-top:40px;color:var(--muted);font-size:12.5px;letter-spacing:.06em}
+
+/* Заставка режима «остановлен, но индексация сохраняется».
+   Контент страницы остаётся в коде, заставка просто закрывает его собой. */
+body.mt-paused{overflow:hidden}
+.mt-overlay{
+  position:fixed;inset:0;z-index:9000;
+  display:flex;align-items:center;justify-content:center;
+  padding:40px 24px;text-align:center;
+  background:rgba(11,11,12,.965);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+}
+.mt-overlay .mt-box{max-width:620px;width:100%}
+.mt-open{
+  margin-top:30px;padding:0;border:0;background:none;cursor:pointer;
+  color:var(--muted);font:inherit;font-size:12.5px;letter-spacing:.04em;
+  text-decoration:underline;text-underline-offset:3px;
+}
+.mt-open:hover{color:var(--accent)}
