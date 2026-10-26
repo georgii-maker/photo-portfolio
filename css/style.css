@@ -681,9 +681,4 @@ body.mt-paused{overflow:hidden}
   -webkit-backdrop-filter:blur(12px);
 }
 .mt-overlay .mt-box{max-width:620px;width:100%}
-.mt-open{
-  margin-top:30px;padding:0;border:0;background:none;cursor:pointer;
-  color:var(--muted);font:inherit;font-size:12.5px;letter-spacing:.04em;
-  text-decoration:underline;text-underline-offset:3px;
-}
-.mt-open:hover{color:var(--accent)}
+/* Кнопки закрытия нет: заставку снять нельзя */
