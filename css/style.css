@@ -604,3 +604,67 @@ body.is-locked{overflow:hidden}
   .cat-cover:hover img,.cat-thumb:hover img{transform:none}
   .btn-back:hover{background:var(--surface);color:var(--text);border-color:var(--line)}
 }
+
+
+/* ---- ТЕХНИЧЕСКИЙ ПЕРЕРЫВ ---- */
+/* Плашка объявления: закреплена снизу, чтобы не спорить с фиксированной шапкой. */
+.maintenance-banner{
+  position:fixed;left:0;right:0;bottom:0;z-index:120;
+  display:flex;align-items:center;gap:12px;flex-wrap:wrap;
+  padding:11px 22px;background:rgba(20,17,12,.96);
+  border-top:1px solid rgba(201,168,106,.55);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  color:var(--text);font-size:14px;line-height:1.45;
+  box-shadow:0 -14px 34px -18px rgba(0,0,0,.85);
+}
+.maintenance-banner .mb-icon{
+  flex:none;width:26px;height:26px;border-radius:50%;
+  display:inline-flex;align-items:center;justify-content:center;
+  border:1px solid rgba(201,168,106,.5);color:var(--accent);
+  font-size:10px;letter-spacing:.5px;
+}
+.maintenance-banner .mb-text{flex:1;min-width:200px;color:var(--muted)}
+.maintenance-banner strong{color:var(--accent);font-weight:600;margin-right:8px}
+.maintenance-banner .mb-until{
+  flex:none;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--accent);border:1px solid rgba(201,168,106,.45);
+  border-radius:999px;padding:4px 11px;white-space:nowrap;
+}
+/* Место под плашку, чтобы она не закрывала подвал и кнопки */
+body.mt-notice{padding-bottom:64px}
+@media (max-width:620px){
+  .maintenance-banner{padding:10px 14px;font-size:13px;gap:9px}
+  .maintenance-banner .mb-text{min-width:0;font-size:12.5px}
+  .maintenance-banner .mb-until{font-size:10.5px;padding:3px 9px}
+  body.mt-notice{padding-bottom:86px}
+}
+
+/* Страница перерыва: заменяет весь сайт, пока режим «closed». */
+body.mt-closed{
+  min-height:100vh;display:flex;align-items:center;justify-content:center;
+  padding:40px 24px;text-align:center;
+}
+.mt-box{max-width:620px;width:100%}
+.mt-mark{
+  width:74px;height:74px;margin:0 auto 26px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  border:1px solid rgba(201,168,106,.5);color:var(--accent);
+  background:rgba(201,168,106,.10);font-size:18px;letter-spacing:2px;
+}
+.mt-brand{
+  font-size:11px;letter-spacing:.26em;text-transform:uppercase;
+  color:var(--accent);margin:0 0 18px;
+}
+.mt-title{
+  font-family:var(--font-display);font-weight:400;
+  font-size:clamp(34px,6vw,58px);line-height:1.08;margin:0 0 18px;
+}
+.mt-text{color:var(--muted);font-size:clamp(15px,1.6vw,17px);line-height:1.65;margin:0 0 26px}
+.mt-until{
+  display:inline-block;margin:0 0 28px;padding:7px 16px;border-radius:999px;
+  border:1px solid rgba(201,168,106,.45);color:var(--accent);
+  font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+}
+.mt-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.mt-foot{margin-top:40px;color:var(--muted);font-size:12.5px;letter-spacing:.06em}
